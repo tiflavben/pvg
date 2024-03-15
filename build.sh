@@ -93,7 +93,7 @@ log_action_end_msg $?
 
 if [[ $(cat /proc/swaps | wc -l) -le 1 ]]; then
     log_action_begin_msg "setting up swapfile"
-    fallocate -l 2G /swapfile && \
+    fallocate -l 512 /swapfile && \
       chmod 600 /swapfile && \
       mkswap /swapfile && \
       swapon /swapfile && \
